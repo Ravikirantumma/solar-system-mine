@@ -6,7 +6,10 @@ on:
     branches:
       - main
       - 'solar/*'
-
+env:
+    MANGO_URI: 'mangodb+srv://supercluster.d83jj.mangodb.net/superData'
+    MANGO_USERNAME: ${{vars.MANGO_USERNAME}}
+    MANGO_PASSWORD: ${{secrets.MANGO_PASSWORD}}
 jobs:
   unit-testing:
     name: unit testing
