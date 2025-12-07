@@ -6,10 +6,12 @@ on:
     branches:
       - main
       - 'solar/*'
+
 env:
-    MANGO_URI: 'mangodb+srv://supercluster.d83jj.mangodb.net/superData'
-    MANGO_USERNAME: ${{vars.MANGO_USERNAME}}
-    MANGO_PASSWORD: ${{secrets.MANGO_PASSWORD}}
+  MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
+  MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+
 jobs:
   unit-testing:
     name: unit testing
@@ -22,9 +24,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      
+
       - name: install dependencies
         run: npm install
-      
+
       - name: unit testing
         run: npm test
